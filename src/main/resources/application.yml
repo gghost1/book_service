@@ -1,0 +1,36 @@
+spring:
+    application:
+        name: book_service
+    liquibase:
+        enabled: true
+        change-log: classpath:db/changelog/master.xml
+    jpa:
+        hibernate:
+            ddl-auto: none
+        database: postgresql
+        open-in-view: true
+    datasource:
+        url: jdbc:postgresql://db:5432/postgresql
+        username: postgres
+        password: 5432
+        hikari:
+            maximum-pool-size: 10
+            connection-timeout: 45000
+            auto-commit: true
+
+
+server:
+    port: 8080
+
+jwt:
+    secret: VH9CPR8U4EYSJTM0zeOyEalA0p09AVqV/2a7EmpkHyo-
+    expirationMs: 3600000
+
+springdoc:
+    swagger-ui:
+        enabled: true
+        path: /swagger-ui
+    override-with-generic-response: false
+    model-converters:
+        deprecating-converter:
+            enabled: false
